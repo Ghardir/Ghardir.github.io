@@ -3,25 +3,34 @@ body {
 	background-color: #ffeecc;
 	box-sizing: border-box;
 	padding: 0;
+	min-width: 480px;
+
+
 }
 .title-div{
 	font-size: 2em;
 	text-align: center;
 	padding: 10px;
 	margin: 2% 0;
+	font-weight: bold;
+	background-color:gainsboro;
 }
 
 .resource-container {
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
-	font-size: 1.5em;
+	grid-template-columns: repeat(6, auto);
+	font-size: 1..25em;
 	text-align: center;
 	gap: 5px;
 	width: 80%;
 	margin: 0 10% 0 10%; 
-	background-color: #c2c2d6;
+	background-color: burlywood;
 	border: 1px solid black;
 	border-radius: 5px;
+}
+
+.hidden {
+	display: none;
 }
 .resource {
 	
@@ -37,41 +46,72 @@ body {
 	margin-bottom: 20px;
 }
 
-
-.production img {
-	width: 150px;
-	height: 150px;
-	padding: 10px 30px 0 30px;
+.production {
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	justify-content: center;
+}
+.worker{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 80%;
+	margin-top: 50%;
+}
+.worker button{
+	height: 20px;
+	width: 10px;
+	
 }
 
-.tier-one-container, .tier-two-container, .tier-three-container{
+.production-image {
+	width: 140px;
+	height: 200px;
+}
+.production img {
+
+	width: 120px;
+	height: 120px;
+	padding: 10px 0;
+}
+
+.production-container{
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(6, auto);
 	font-size: 1.5em;
 	text-align: center;
-	gap: 5px;
+	gap: 20px;
 	width: 80%;
 	margin-right: 10%; 
 	margin-left: 10%; 
-	background-color: #c2c2d6;
-	border: 1px solid black;
-	border-radius: 5px;
+
+	padding: 0 10;
 
 }
 
+.production-image {
+	border: solid 1px;
+	border-radius: 5px;
+	background-color: burlywood; 
+}
 
+.worker {
+	border: solid 1px;
+	border-radius: 5px;
+	margin-right: 5px;
+}
 
+.production p {
+	font-size: 1em;
+	margin: 5px 5px;
 
+}
 
-
-
-
-
-
-
-
-
-
+.hide-button{
+	width: 20px;
+	height: 20px;
+}
 
 
 footer {
@@ -79,3 +119,37 @@ footer {
 	text-align: center;
 	color: white;
 }
+
+
+
+@media only screen and (max-width: 800px) {
+	
+	.resource-container {
+	display: grid;
+	grid-template-columns: repeat(3, auto);
+	font-size: 1em;
+
+	}
+
+	.resource img{
+		transform: scale(0.75);
+	}
+	.production-container{
+		display: grid;
+		grid-template-columns: repeat(3, auto);
+		font-size: 1em;
+
+	}
+	.production-container img{
+		transform: scale(.60);
+		
+	}
+	
+	.title-div{
+		font-size: 1.25em;
+	}
+	.resource-container img{
+		transform: scale(0.60);
+	}
+
+  }
