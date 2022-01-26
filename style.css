@@ -117,7 +117,8 @@ body {
 footer {
 	margin: 5% 0;
 	text-align: center;
-	color: white;
+	color: grey;
+	word-wrap: break-word;
 }
 
 
