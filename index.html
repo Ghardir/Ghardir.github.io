@@ -11,10 +11,10 @@
 	<title>A Basic supply cahin</title>
 	<meta property="og:title" content="A Basic HTML5 Template">
 	<link rel="stylesheet" href="style.css">
-	<script src="script.js">defer </script>
+	<script type="text/javascript" src="./script.js" defer></script>
 </head>
 
-<body>
+<body onload="setInterval(updateResources, 1000);">
 
 <!-- resource tab start-->
 
@@ -22,11 +22,11 @@
 	<div class="resource-container">
 		<div class="resource" id="iron_ore">
 			<img src="./images/Iron_ore.png" alt="iron_ore">
-			<p class="counter" id="ore-counter">10</p>
+			<p class="counter" id="ore-counter">0</p>
 		</div>
-		<div class="resource" id="wood">
-			<img src="./images/Wood.png" alt="wood">
-			<p class="counter" id="wood-counter">1000</p>
+		<div class="resource" id="lumber">
+			<img src="./images/Wood.png" alt="lumber">
+			<p class="counter" id="lumber-counter">0</p>
 		</div>
 		<div class="resource" id="charcoal">
 			<img src="./images/Coal.png" alt="charcoal">
@@ -38,11 +38,11 @@
 		</div>
 		<div class="resource" id="tools">
 			<img src="./images/Tools.png" alt="tools">
-			<p class="counter" id="tools-counter">5000</p>
+			<p class="counter" id="tools-counter">0</p>
 		</div>
 		<div class="resource" id="coins">
 			<img src="./images/Gold_coins.png" alt="Gold_coins">
-			<p class="counter" id="gold-coins-counter">100000</p>
+			<p class="counter" id="gold-coins-counter">0</p>
 		</div>
 	</div>
 	
@@ -55,24 +55,33 @@
 		
 		<div class="production" id="iron-mine">
 			<div class="worker">
-				<button class="add-worker"></button>
-				<p class="counter" id="iron-mine-counter">100</p>
-				<button class="take-worker"></button>
+				<p class="max-workers" id="max-workers-iron-mine">0</p>
+				<button class="give-worker" id="give-worker-iron-mine"></button>
+				<p class="counter" id="iron-mine-counter-worker">0</p>
+				<button class="take-worker" id="take-worker-iron-mine"></button>
 			</div>
 			<div class="production-image">
 				<p>Iron mine</p>
-				<img src="./images/Iron_mine.png" alt="iron_mine">
+				<button class="buy-prod-building" id="buy-ironmine">
+					<img src="./images/Iron_mine.png" alt="iron_mine">
+				</button>
+				<p id="iron-mine-counter">0</p>
 			</div>
 		</div>
+
 		<div class="production" id="lumberjack">
 			<div class="worker">
-				<button class="add-worker"></button>
-				<p class="counter" id="lumberjack-counter">100</p>
-				<button class="take-worker"></button>
+				<p class="max-workers" id="max-workers-lumberjack">0</p>
+				<button class="give-worker" id="give-worker-lumberjack"></button>
+				<p class="counter" id="lumberjack-counter-worker">0</p>
+				<button class="take-worker" id="take-worker-lumberjack"></button>
 			</div>
 			<div class="production-image">
-				<p>Lumberjack</p>
+			<p>Lumberjack</p>
+			<button class="buy-prod-building" id="buy-lumberjack">
 				<img src="./images/Lumberjack_hut.png" alt="lumberjack">
+			</button>
+			<p id="lumberjack-counter">0</p>
 			</div>
 		</div>
 
@@ -83,8 +92,8 @@
 
 		<div class="production" id="iron-smelter">
 			<div class="worker">
-				<button class="add-worker"></button>
-				<p class="counter" id="iron-smelter-counter">100</p>
+				<button class="give-worker"></button>
+				<p class="counter" id="iron-smelter-counter">0</p>
 				<button class="take-worker"></button>
 			</div>
 			<div class="production-image">
@@ -92,10 +101,11 @@
 				<img src="./images/Iron_smelter.png" alt="Iron_smelter">
 			</div>
 		</div>
+		
 		<div class="production" id="charcoal-burner">
 			<div class="worker">
-				<button class="add-worker"></button>
-				<p class="counter" id="charcoal-burner-counter">100</p>
+				<button class="give-worker"></button>
+				<p class="counter" id="charcoal-burner-counter">0</p>
 				<button class="take-worker"></button>
 			</div>
 			<div class="production-image">
@@ -109,8 +119,8 @@
 	<div class="tier-three-container production-container">
 		<div class="production" id="toolmakers_workshop">
 			<div class="worker">
-				<button class="add-worker"></button>
-				<p class="counter" id="toolmakers-workshop-counter">100</p>
+				<button class="give-worker"></button>
+				<p class="counter" id="toolmakers-workshop-counter">0</p>
 				<button class="take-worker"></button>
 			</div>
 			<div class="production-image">

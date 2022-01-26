@@ -58,6 +58,7 @@ body {
 	justify-content: center;
 	height: 80%;
 	margin-top: 50%;
+	width: 100%;
 }
 .worker button{
 	height: 20px;
@@ -66,9 +67,17 @@ body {
 }
 
 .production-image {
-	width: 140px;
-	height: 200px;
+	width: 100%;
+	height: 100%;
+
 }
+.buy-prod-building{
+	border: none;
+	background-color: transparent;
+	
+
+}
+
 .production img {
 
 	width: 120px;
@@ -96,6 +105,9 @@ body {
 	background-color: burlywood; 
 }
 
+
+
+
 .worker {
 	border: solid 1px;
 	border-radius: 5px;
@@ -108,10 +120,6 @@ body {
 
 }
 
-.hide-button{
-	width: 20px;
-	height: 20px;
-}
 
 
 footer {
