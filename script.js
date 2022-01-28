@@ -6,7 +6,7 @@ function updateResources(){
 
 
 class ProductionBuilding {
-	constructor(name, production, productionRate, amount, workforce, maxWorkforce, inCoins, inTools, upkeep){
+	constructor(name, production, productionRate, amount, workforce, maxWorkforce, inCoins, inTools, upkeep, workforceId){
 		this.name = name;
 		this.production = production;
 		this.productionRate = productionRate; //in one minute/ one cycle at 100% efficiency
@@ -24,28 +24,28 @@ class ProductionBuilding {
 
 // all production buildings
 
-const lumberjack = new ProductionBuilding ("Lumberjack", "Lumber", 1.5, 0, 0, 0, 50, 2, 0);
 const ironMine = new ProductionBuilding ("Iron mine", "Ironore", 2, 0, 0, 0, 200, 10, 0);
+const lumberjack = new ProductionBuilding ("Lumberjack", "Lumber", 1.5, 0, 0, 0, 50, 2, 0);
+
 
 // materials and starting conditions
-let ironore = 5;
+let ironore = 0;
 let lumber = 0;
 let charcoal= 0;
-let iron = 1000;
-let tools = 2000;
-let coins = 1500;
+let iron = 0;
+let tools = 0;
+let coins = 20000;
 let workers = 100; //not implemented xd
 
-document.querySelector("#ore-counter").innerHTML = ironore
-document.querySelector("#lumber-counter").innerHTML = lumber;
+
 document.querySelector("#charcoal-counter").innerHTML = charcoal;
 document.querySelector("#iron-counter").innerHTML = iron;
 document.querySelector("#tools-counter").innerHTML = tools;
 
 //all buttons
 
-document.querySelector("#give-worker-iron-mine").addEventListener("click", addWorker);
-document.querySelector("#take-worker-iron-mine").addEventListener("click", takeWorker);
+document.querySelector("#give-worker-ironmine").addEventListener("click", addWorker);
+document.querySelector("#take-worker-ironmine").addEventListener("click", takeWorker);
 document.querySelector("#buy-ironmine").addEventListener("click", buyIronMine);
 
 document.querySelector("#give-worker-lumberjack").addEventListener("click", addWorker2);
@@ -59,10 +59,10 @@ function buyIronMine (){
 	if (coins >= ironMine.inCoins) {
 	ironMine.amount += 1;
 	coins -= ironMine.inCoins;
-	document.querySelector("#iron-mine-counter").innerHTML = ironMine.amount;
-	document.querySelector("#gold-coins-counter").innerHTML = coins;
+	document.querySelector("#ironmine-counter").innerHTML = ironMine.amount;
+	document.querySelector("#goldcoins-counter").innerHTML = coins;
 	ironMine.maxWorkforce = 2*ironMine.amount;
-	document.querySelector("#max-workers-iron-mine").innerHTML = ironMine.maxWorkforce;
+	document.querySelector("#max-workers-ironmine").innerHTML = ironMine.maxWorkforce;
 	}else{
 
 	}
@@ -71,18 +71,16 @@ function buyIronMine (){
 function addWorker(){
 	if (ironMine.workforce < ironMine.maxWorkforce){
 		ironMine.workforce += 1;
-		document.querySelector("#iron-mine-counter-worker").innerHTML = ironMine.workforce;
+		document.querySelector("#ironmine-counter-worker").innerHTML = ironMine.workforce;
 	}else{
 
 	}
 };
-
-
 function takeWorker() {
 	if (ironMine.workforce == 0) {
 	}else{
 		ironMine.workforce -= 1;
-		document.querySelector("#iron-mine-counter-worker").innerHTML = ironMine.workforce;
+		document.querySelector("#ironmine-counter-worker").innerHTML = ironMine.workforce;
 	}
 };
 
@@ -103,7 +101,7 @@ function buyLumberjack (){
 	lumberjack.amount += 1;
 	coins -= lumberjack.inCoins;
 	document.querySelector("#lumberjack-counter").innerHTML = lumberjack.amount;
-	document.querySelector("#gold-coins-counter").innerHTML = coins;
+	document.querySelector("#goldcoins-counter").innerHTML = coins;
 	lumberjack.maxWorkforce = 2*lumberjack.amount;
 	document.querySelector("#max-workers-lumberjack").innerHTML = lumberjack.maxWorkforce;
 	}else{
@@ -139,5 +137,22 @@ function produceLumber() {
 
 
 
+/// tabs-> need to understand this
 
 
+function openTier(evt, prodTier) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(prodTier).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
