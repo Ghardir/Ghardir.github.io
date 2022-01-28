@@ -52,7 +52,7 @@ document.querySelector("#give-worker-lumberjack").addEventListener("click", addW
 document.querySelector("#take-worker-lumberjack").addEventListener("click", takeWorker2);
 document.querySelector("#buy-lumberjack").addEventListener("click", buyLumberjack);
 
-
+//los
 //ironmine functions
 
 function buyIronMine (){
