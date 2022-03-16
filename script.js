@@ -27,7 +27,7 @@ const hero = new Character("Hero", "Wanderer", 14, 14, 13,"#hero", [] );
 const banditA = new Character("Evil Joe", "Bandit", 12, 12, 12, "#enemy", "image/chara_two.png");
 const banditB = new Character("Evil Harry", "Bandit", 12, 13, 11, "#enemy", "image/chara_three.png");
 const banditC = new Character("Evil Denny", "Bandit", 13, 11, 12, "#enemy", "image/chara_four.png");
-const bossA = new Character("Boss David", "Bandit Chief", 14, 16, 17, "#enemy", "image/chara_five.png");
+const bossA = new Character("Boss David", "Bandit Chief", 14, 15, 15, "#enemy", "image/chara_five.png");
 
 
 
