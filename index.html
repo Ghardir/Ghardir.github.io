@@ -8,213 +8,109 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oxygen&display=swap" rel="stylesheet">
-	<title>A basic supply chain (and it works :o)!</title>
-	<meta property="og:title" content="A Basic HTML5 Template">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Comforter&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Comforter&display=swap" rel="stylesheet">
+	<title>Manual Battler</title>
 	<link rel="stylesheet" href="style.css">
-	<script type="text/javascript" src="./script.js" defer></script>
+	
 </head>
 
-<body onload="setInterval(updateResources, 1000);">
-
-<!-- resource tab start-->
-
-	<div class="title-div">--- Test version- peasants only ---</div>
-	<div class="resource-container">
-			<div class="resource" id="coins">
-				<img src="./images/Gold_coins.png" alt="Gold_coins">
-				<p class="counter" id="goldcoins-counter">0</p>
-			</div>
-			<div class="resource" id="fish">
-				<img src="./images/Fish.png" alt="fish">
-				<p class="counter" id="fish-counter">0</p>
-			</div>
-			<div class="resource" id="cider">
-				<img src="./images/Cider.png" alt="cider">
-				<p class="counter" id="cider-counter">0</p>
-			</div>
-			
-			<div class="resource" id="lumber">
-				<img src="./images/Wood.png" alt="lumber">
-				<p class="counter" id="lumber-counter">0</p>
-			</div>
-			<div class="resource" id="iron_ore">
-				<img src="./images/Iron_ore.png" alt="iron_ore">
-				<p class="counter" id="ore-counter">0</p>
-			</div>
-			<div class="resource" id="charcoal">
-				<img src="./images/Coal.png" alt="charcoal">
-				<p class="counter" id="charcoal-counter">0</p>
-			</div>
-			
-			<div class="resource" id="iron">
-				<img src="./images/Iron.png" alt="iron">
-				<p class="counter" id="iron-counter">0</p>
-			</div>
-			<div class="resource" id="tools">
-				<img src="./images/Tools.png" alt="tools">
-				<p class="counter" id="tools-counter">0</p>
-			</div>
-		</div>	
+<body>
+	<header>
+		<h1>Manual Battler - idea check</h1>
+	</header>
+	<div id="game-start" >
+		<img src="image/chara_one.png" id="game-start-hero-portait">
+		<p id="game-start-intro">Opening text</p>
+		
+		<img src="image/background.png" height="auto" width="800" id="battle-background">
+		<button onclick="startBtn()" id="start-button">Click to Start</button>
 	</div>
-	
-<!-- resource tab end-->
-
-<!-- production tab start-->
-
-<h2>Production buildings</h2>
-<div class="tab">
-	<button class="tablinks" onclick="openTier(event, 'tierI')" id="defaultOpen">Peasants</button>
-	<button class="tablinks" onclick="openTier(event, 'tierII')">--- TIER II ---</button>
-	<button class="tablinks" onclick="openTier(event, 'tierIII')">--- TIER III ---</button>
-</div>
-
-<div id="tierI" class="tabcontent">
-	<span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-	<div class="title-div "> --- TIER I ---</div>
-		<div class="tier-one-container production-container" >
+	<div id="game-container" class="hidden" >
+		
+		<div id="character-container" >
+		
+		<img src="image/background.png" height="auto" width="800" id="background">
 			
-			<div class="production" id="fisherman">
-				<div class="worker">
-					<p>MAX</p>
-					<p class="max-workers" id="max-workers-fisherman">0</p>
-					<button class="add-worker" id="add-worker-fisherman"></button>
-					<p class="counter" id="fisherman-counter-worker">0</p>
-					<button class="take-worker" id="take-worker-fisherman"></button>
-				</div>
-				<div class="production-image">
-				<p>fisherman</p>
-				<button class="buy-prod-building" id="buy-fisherman">
-					<img src="./images/Fisherman_hut.png" alt="fisherman">
-				</button>
-				<p id="fisherman-counter">0</p>
-				</div>
-			</div>
-			
-			<div class="production" id="ciderfarm">
-				<div class="worker">
-					<p>MAX</p>
-					<p class="max-workers" id="max-workers-ciderfarm">0</p>
-					<button class="add-worker" id="add-worker-ciderfarm"></button>
-					<p class="counter" id="ciderfarm-counter-worker">0</p>
-					<button class="take-worker" id="take-worker-ciderfarm"></button>
-				</div>
-				<div class="production-image">
-				<p>Cider farm</p>
-				<button class="buy-prod-building" id="buy-ciderfarm">
-					<img src="./images/Cider_farm.png" alt="ciderfarm">
-				</button>
-				<p id="ciderfarm-counter">0</p>
-				</div>
-			</div>
-
-			<div class="production" id="lumberjack">
-				<div class="worker">
-					<p>MAX</p>
-					<p class="max-workers" id="max-workers-lumberjack">0</p>
-					<button class="add-worker" id="add-worker-lumberjack"></button>
-					<p class="counter" id="lumberjack-counter-worker">0</p>
-					<button class="take-worker" id="take-worker-lumberjack"></button>
-				</div>
-				<div class="production-image">
-				<p>Lumberjack</p>
-				<button class="buy-prod-building" id="buy-lumberjack">
-					<img src="./images/Lumberjack_hut.png" alt="lumberjack">
-				</button>
-				<p id="lumberjack-counter">0</p>
-				</div>
-			</div>
-			
-			<div class="production" id="ironmine">
-				<div class="worker">
-					<p>MAX</p>
-					<p class="max-workers" id="max-workers-ironmine">0</p>
-					<button class="add-worker" id="add-worker-ironmine"></button>
-					<p class="counter" id="ironmine-counter-worker">0</p>
-					<button class="take-worker" id="take-worker-ironmine"></button>
-				</div>
-				<div class="production-image">
-					<p>Iron mine</p>
-					<button class="buy-prod-building" id="buy-ironmine">
-						<img src="./images/Iron_mine.png" alt="iron_mine">
-					</button>
-					<p id="ironmine-counter">0</p>
-				</div>
-			</div>
-	</div>
-</div>
-	
-<div id="tierII" class="tabcontent">
-	<span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-	<div class="title-div">--- TIER II ---</div>
-		<div class="tier-two-container production-container" >
-
-			<div class="production" id="ironsmelter">
-				<div class="worker">
-					<p>MAX</p>
-					<p class="max-workers" id="max-workers-ironsmelter">0</p>
-					<button class="add-worker" id="add-worker-ironsmelter"></button>
-					<p class="counter" id="ironsmelter-counter-worker">0</p>
-					<button class="take-worker" id="take-worker-ironsmelter"></button>
-				</div>
-				<div class="production-image">
-					<p>Iron smelter</p>
-					<button class="buy-prod-building" id="buy-ironsmelter">
-						<img src="./images/Iron_smelter.png" alt="ironsmelter">
-					</button>
-					<p id="ironsmelter-counter">0</p>
+			<div id="hero-container"  >
+				<div id="hide-hero" >
+					<p id="hero-hp">0</p>
+					<div id="hero-hp-bar">
+						<div id="hero-hp-bar-progress"></div>
 					</div>
+					<img src="image/chara_one.png" id="hero-portait" >
+					<p id="hero-name">hero name</p>
+				</div>
 			</div>
 			
-			<div class="production" id="charcoalburner">
-				<div class="worker">
-					<p>MAX</p>
-					<p class="max-workers" id="max-workers-charcoalburner">0</p>
-					<button class="add-worker" id="add-worker-charcoalburner"></button>
-					<p class="counter" id="charcoalburner-counter-worker">0</p>
-					<button class="take-worker" id="take-worker-charcoalburner"></button>
+			<div id="enemy-container"  >
+				<div id="hide-enemy"  >
+					<p id="enemy-hp" >0</p>
+					<div id="enemy-hp-bar" >
+						<div id="enemy-hp-bar-progress"></div>
+					</div>
+					<img src="image/chara_two.png" id="enemy-portait" >
+					<p id="enemy-name" >enemy name</p>
 				</div>
-				<div class="production-image">
-					<p>Charcoal burner</p>
-					<button class="buy-prod-building" id="buy-charcoalburner">
-						<img src="./images/Charcoal_burner_hut.png" alt="charcoalburner">
-					</button>
-					<p id="charcoalburner-counter">0</p>
+				<div id="victory-board" class="hidden">
+					<h4 id="victory-msg">Victory!!!</h4>
+					<ul id="loot-ul">You gain:
+						
+					</ul>
+					<button onclick="closeAwards()">Close<button>
 				</div>
+			</div>
+			
+			
+		</div>
+		<div id="info-container">
+			<div id="battle-info-container">
+				<h5 id="battle-info">Game info: </h5>
 			</div>
 		</div>
-</div>
-
-<div id="tierIII" class="tabcontent">
-	<span onclick="this.parentElement.style.display='none'" class="topright">&times</span>	
-		<div class="title-div">--- TIER III ---</div>
-			<div class="tier-three-container production-container">
-
-				<div class="production" id="toolmaker">
-					<div class="worker">
-						<p>MAX</p>
-						<p class="max-workers" id="max-workers-toolmaker">0</p>
-						<button class="add-worker" id="add-worker-toolmaker"></button>
-						<p class="counter" id="toolmaker-counter-worker">0</p>
-						<button class="take-worker" id="take-worker-toolmaker"></button>
-					</div>
-					<div class="production-image">
-						<p>Toolmaker</p>
-						<button class="buy-prod-building" id="buy-toolmaker">
-							<img src="./images/Toolmakers_workshop.png" alt="toolmaker">
-						</button>
-						<p id="toolmaker-counter">0</p>
-					</div> 
-				</div>
-
-			</div>
-</div>
-
-<!-- production tab end-->
-<hr>
+		<div id="commands-container">
+			<button class="command" id="attakcBtn">Attack</button>
+			<button class="command" id="skillBtn" >Skill</button>
+				<ul id="skillList" class="hidden"><p class="listHeader">Skill List : </p>
+					<li id="closeMenuBtn"><button onclick="openSkillMenu()">Close [x]</button></li>
+					<li><button onclick="firstAid.skillFunc(hero)">First Aid</button></li>
+					
+				</ul>
+			<button class="command" id="itemBtn">Item</button>
+				<ul id="itemList" class="hidden"><p class="listHeader">Item List : </p>
+					<li id="closeMenuBtn"><button onclick="openItemMenu()">Close [x]</button></li>
+				</ul>
+			<button class="command" id="runBtn">Quit</button>
+		</div>
+		
+	</div>
+	
+	<div id="closure" class="hidden">
+		<h2>You have fallen... <br>
+			and disrespected all your lineage...</h2>	
+		<h2>Your journey ends here...</h2>
+		<button onclick="retry()" id="retry-button">Retry?</button>
+	</div>
+	<div id="game-end-screen" class="hidden">
+		<h2>You have beaten all the enemies <br>
+			and won the game.<br>
+			Thank you for playing, I know, maybe the code is a mess... <br>but I enjoyed making this project. <br>
+			And even if you liked it just a little bit... more power to you.<br> Thank you for playing.</h2>
+			<br>Press F5 to play again :D
+		
+	</div>
+	
 </body>
+<footer>Made by Ghardir, all rights... free lol. <br> Just a project. </footer>
+<script type="text/javascript" src="./script.js"></script>
+<script type="text/javascript" src="./skills.js"></script>
+<script type="text/javascript" src="./items.js"></script>
+<script type="text/javascript" src="./game_loop.js"></script>
 
 
 
-
-<footer>wolololoasdasda asdas asd asd asd asd asd asd asd asd asollo</footer>
 </html>

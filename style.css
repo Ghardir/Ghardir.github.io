@@ -1,243 +1,356 @@
-body {
+*{
 	margin: 0;
-	background-color: #ffeecc;
+	padding: 0 ;
 	box-sizing: border-box;
-	padding: 0;
-	min-width: 480px;
-
-
 }
-.title-div{
-	font-size: 2em;
+
+:root{
+	--displayWidth: 800px;
+}
+
+.hidden{
+	display: none;
+}
+
+.rip-animation {
+	transform: rotate(90deg);
+	transition: all 0.3s ease;
+}
+
+body{
+	font-family: 'Montserrat', sans-serif ;
+	max-width: var(--displayWidth);
+	background-color: #fffdc9;
+	height: auto;
+	margin-bottom: 5%;
+	min-width: 500px;
+	
+}
+header{
+	text-align:center;
+	padding: 30px 20px;
+	background-color: #c2c2c2;
+}
+
+#game-container{
+	
+}
+#character-container{
+	position:relative;
+	
+	background-color: #e0e0e0;
 	text-align: center;
-	padding: 10px;
-	margin: 2% 0;
-	font-weight: bold;
-	background-color:gainsboro;
+	padding: 20px 20px;
+	border: solid 1px #000;
+}
+#battle-background{
+	position:absolute;
+	z-index: 950;
 }
 
-.resource-container {
-	display: grid;
-	grid-template-columns: repeat(4, auto);
-	font-size: 1.25em;
-	text-align: center;
-	gap: 5px;
-	width: auto;
-	height:auto;
-	margin: 5% 10% 0 10%; 
-	background-color: burlywood;
-	border: 1px solid black;
-	border-radius: 5px;
-}
-
-
-.resource {
-	
-	display: grid;
-	grid-template-columns: 1fr 10fr;
-	align-items: center;
-	gap: 10px;
-	margin-left: 2%;
-	
-	
-}
-.counter{
-	
-	margin-bottom: 20px;
-}
-
-
-.production-container{
-	display: grid;
-	grid-template-columns: repeat(3, auto);
-	font-size: 1em;
-	text-align: center;
-	gap: 20px;
-	width: 10vw;
-	height: 20vh;
-
-
-}
-.production {
-	display: grid;
-	grid-template-columns: repeat(2, auto);
-	justify-content: center;
-}
-.worker{
+#hero-container, #enemy-container{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-	height: 80%;
-	margin-top: 50%;
-	width: 100%;
-}
-.worker button{
-	height: 20px;
-	width: 10px;
-	margin: 5px;
-	
-}
-
-.production-image {
-	width: 100%;
-	height: 100%;
-
-}
-.buy-prod-building{
-	border: none;
-	background-color: transparent;
-	width: 80px;
-	
-	
-
-}
-
-.production img {
-
-	width: 120px;
-	height: 120px;
-	padding: 10px 0;
-	margin-left: -40%;
-	
-	
-	
-	
-	
-}
-
-
-
-
-
-.production-image {
-	border: solid 1px;
-	border-radius: 5px;
-	background-color: burlywood; 
-	width: 120px;
-	height: auto;
-}
-
-
-
-.max-workers {
-	margin-bottom: 10px;
-}
-
-.worker {
-	border: solid 1px;
-	border-radius: 5px;
-	margin-right: 5px;
-}
-
-
-
-.production p {
-	font-size: 1em;
-	margin: 5px 7px;
-	
-
-}
-
-hr {
-	margin: 20% 0;
-}
-
-footer {
-	margin-top: 20%;
 	text-align: center;
-	color: grey;
-	word-wrap: break-word;
+	justify-content: center;
+	z-index: 951;
+}
+#hero-container{
+	position: absolute;
+	bottom: 10%;
+	left: 10%;
+}
+#enemy-container{
+	position:absolute;
+	bottom: 10%;
+	right: 10%;
+}
+
+#hero-name, #enemy-name {
+	color: #fff;
+	font-weight: bold;
+}
+
+#hero-hp, #enemy-hp {
+	color: #fff;
+}
+#enemy-hp-bar, #hero-hp-bar {
+	width: 140px;
+	height: auto;
+	border: solid 1px black;
+}
+
+#enemy-hp-bar-progress, #hero-hp-bar-progress{
+	width:100%;
+	height: 20px;
+	background-color: #85fa6e;
+}
+
+#info-container{
+	margin: 20px 40px;
+}
+
+#battle-info-container{
+
+	height: 100px;
+	padding: 20px 30px;
+	border: solid 1px #000;
+	overflow: auto;
+}
+#battle-info-container p {
+	margin-left: 15px; 
+	margin-top: 20px;
+	
 }
 
 
+#commands-container{
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	margin-top: 20px;
+	width: auto;
+	height: 200px;
+	background-color: #c2c2c2;
+	border: solid 1px #000;
+	padding: 10px;
+	gap: 10px;
+}
 
-/* <--tabbbbbbbssssss->> */
+.command{
+	padding: 10px 20px;
+	background-color: #e0e0e0;
+}
 
-h2 {
+
+.listHeader{
+	font-size: 1.2rem;
+	font-weight: bolder;
+}
+
+#skillList {
+	list-style-type: none;
+	position: absolute;
+	width: 30%;
+	top: -65%;
+	left: 60%;
+	z-index: 999;
+	border: solid 1px black;
+	padding: 10px 20px;
+	background-color: #e0e0e0;
+
+}
+
+#itemList {
+	list-style-type: none;
+	position: absolute;
+	width: 30%;
+	top: 10%;
+	left: 10%;
+	z-index: 999;
+	border: solid 1px black;
+	padding: 10px 20px;
+	background-color: #e0e0e0;
+
+}
+
+#skillList li, #itemList li{
+	padding-top: 10px;
 	margin-left: 5%;
 }
-
-.tab {
-	overflow: hidden;
-	border: 1px solid #ccc;
-	background-color: #f1f1f1;
-	width: 90%;
-	margin: 0 5%;
-  }
-  
-  /* Style the buttons inside the tab */
-  .tab button {
-	background-color: inherit;
-	float: left;
+#skillList button, #itemList button {
+	font-size: 1rem;
+	width:100%;
+	height: 20px;
 	border: none;
-	outline: none;
-	cursor: pointer;
-	padding: 14px 16px;
-	transition: 0.3s;
-	font-size: 17px;
-  }
-  
-  /* Change background color of buttons on hover */
-  .tab button:hover {
-	background-color: #ddd;
-  }
-  
-  /* Create an active/current tablink class */
-  .tab button.active {
-	background-color: #ccc;
-  }
-  
-  /* Style the tab content */
-  .tabcontent {
-	display: none;
-	padding: 6px 12px;
-  }
-  
-  /* Style the close button */
-  .topright {
+	background-color: transparent;
+	align-items: center;
+	justify-content: center;
+	text-align: left;
 	
-	margin-top: 2%;
-	margin-right: 1%;
-	float: right;
-	cursor: pointer;
-	font-size: 28px;
-  }
-  
-  .topright:hover {color: red;}
+}
+
+#skillList li:hover, #itemList li:hover{
+	background-color: #c2c2c2;
+}
 
 
-
-
-
-@media only screen and (max-width: 800px) {
+#game-start{
+	z-index: 950;
 	
-	.resource-container {
-	display: grid;
+	max-width: var(--displayWidth);
+	width: 100%;
+	height: auto;
+	background-color: #fffdc9;
+	border: 2px solid #000;
 	
-	font-size: 1em;
-
-	}
-
-	.resource img{
-		transform: scale(0.60);
-	}
-	.production-container{
-		display: grid;
-		grid-template-columns: repeat(2, auto);
-		font-size: 1em;
-
-	}
-	.production-container img{
-		transform: scale(.60);
-		
-	}
 	
-	.title-div{
-		font-size: 1.25em;
-	}
-	.resource-container img{
-		transform: scale(0.60);
-	}
+}
 
-  }
+#game-start-hero-portait{
+	position: absolute;
+	top: 420px;
+	left: 200px;
+	z-index: 951;
+	
+}
+
+#background{
+	position: relative;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+#game-start-intro{
+	
+	position: absolute;
+	z-index: 951;
+	left: 210px;
+	top: 200px;
+	word-spacing: 2px;
+	word-wrap: break-word;
+	color: #fff;
+	font-weight: bold;
+	width: 400px;
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+
+#start-button{
+	position: absolute;
+	z-index: 951;
+	left: 360px;
+	top: 450px;
+	background-color: #fffdc9;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	font-size: 1rem;
+	padding: 2px 5px;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	transition: all 0.3s ease;
+	-webkit-box-shadow: 5px 5px 5px 1px rgba(61,57,37,0.81); 
+	box-shadow: 5px 5px 5px 1px rgba(61,57,37,0.81);
+}
+#start-button:hover {
+	background-color: #FFEE9C;
+	transition: all 0.3s ease;
+}
+
+#start-button:active {
+	background-color: #FFEE9C;
+	box-shadow: none;
+	
+}
+
+#victory-board{
+	border: 2px solid #000;
+	height: 200px;
+	width: 200px;
+	padding: 10px 5px;
+	border-radius: 4px;
+	background-color:#fffdc9;
+
+}
+#victory-msg{
+	padding-top: 10px;
+	font-weight: bold;
+	
+	
+}
+#loot-ul {
+	margin-top: 20px;
+	list-style-type: none;
+	margin-left: 10px; 
+	text-align: left;
+	
+}
+#loot-ul li{
+	padding: 10px 10px;
+	
+}
+
+#closure {
+	position: absolute;
+	max-width: var(--displayWidth);
+	width: 100%;
+	height: 85%;
+	background-color: black;
+	color: white;
+	top: 20px;
+	z-index: 999;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	border: 10px solid #fffdc9;
+	
+	
+}
+
+#closure h2{
+	margin: 20% 10%;
+	line-height: 2.5rem;
+	
+}
+
+#closure button{
+	font-size: 1rem;
+	height: 2rem;
+	width: 8rem;
+	border: 1px solid #fff;
+	background-color: #e0e0e0;
+	border-radius: 5px;
+}
+
+
+.attack_anim{
+	animation: heroAttack  1s ease;
+	animation-fill-mode: forwards;
+}
+
+@keyframes heroAttack {
+  15% {transform:rotate(-15deg);}
+  30% {transform:translateX(50px);}
+  45% {transform:rotate(-15deg);}
+}
+
+.attack_anim_enemy{
+	animation: enemyAttack  1s ease;
+	animation-fill-mode: forwards;
+}
+
+@keyframes enemyAttack {
+  15% {transform:rotate(-15deg);}
+  30% {transform:translateX(-50px);}
+  45% {transform:rotate(-15deg);}
+}
+
+
+#game-end-screen{
+	z-index: 999;
+	background-color: #c2c2c2;
+	text-align: center;
+	padding: 10%;
+	margin: 5%;
+	letter-spacing: 2px;
+}
+#retry-button{
+	width: 100px;
+	height: 30px;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+footer{
+	padding-top:10%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1rem;
+	opacity: 0.5;
+}
